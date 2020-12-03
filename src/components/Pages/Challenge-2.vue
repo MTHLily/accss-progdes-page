@@ -1,5 +1,9 @@
 <template>
   <div class="container">
+    <h1 class="display-6 text-center">{{ title }}</h1>
+    <p class="lead text-justify">
+      {{ description }}
+    </p>
     <div class="card">
       <div class="card-header">
         <h5 class="card-title">Add New</h5>
@@ -40,19 +44,28 @@
         </div>
       </div>
     </div>
-    <table class="table">
+    <table class="table table-borderless">
       <thead>
-        <th>Name</th>
-        <th>Course</th>
-        <th>Year</th>
-        <th>Actions</th>
+        <th v-for="(header, index) in headers" :key="index">
+          <button
+            class="btn w-100 font-weight-bold btn-outline-secondary"
+            @click="sortTableFn(index)"
+          >
+            {{ header.name }}
+          </button>
+        </th>
+        <th>
+          <button class="btn w-100 font-weight-bold btn-outline-secondary">
+            Actions
+          </button>
+        </th>
       </thead>
       <tbody v-if="items.length != 0">
-        <tr v-for="item in items" :key="item.index">
+        <tr v-for="item in tableItems" :key="item.index">
           <td>{{ item.name }}</td>
           <td>{{ item.course }}</td>
           <td>{{ item.year }}</td>
-          <td class="d-flex justify-center align-center">
+          <td class="d-flex justify-content-center">
             <button class="btn btn-danger" @click="deleteItem(item.index)">
               &times;
             </button>
@@ -70,12 +83,16 @@
 
 <script>
 export default {
+  props: ["title", "description"],
   computed: {
+    tableItems() {
+      return this.items;
+    },
     valid() {
       return (
         this.newItem.name == null ||
         this.newItem.course == null ||
-        this.newItem.year > 5 ||
+        this.newItem.year > 6 ||
         this.newItem.year < 0 ||
         this.newItem.year == null
       );
@@ -90,6 +107,24 @@ export default {
           year: 3,
         },
       ],
+      headers: [
+        {
+          name: "Name",
+          model: "name",
+        },
+        {
+          name: "Course",
+          model: "course",
+        },
+        {
+          name: "Year",
+          model: "year",
+        },
+      ],
+      sortTable: {
+        ind: 0,
+        desc: true,
+      },
       newItem: {
         name: null,
         course: null,
@@ -108,6 +143,29 @@ export default {
         course: null,
         year: null,
       };
+      this.sortTableFn(null, false);
+    },
+    sortTableFn(ind, change = true) {
+      if (change) {
+        if (this.sortTable.ind == ind)
+          this.sortTable.desc = !this.sortTable.desc;
+        else this.sortTable.ind = ind;
+      }
+      this.items.sort((a, b) => {
+        if (this.sortTable.ind < 2) {
+          const compare =
+            a[this.headers[this.sortTable.ind].model] >
+            b[this.headers[this.sortTable.ind].model]
+              ? 1
+              : -1;
+          return this.sortTable.desc ? compare : -compare;
+        } else {
+          const compare =
+            a[this.headers[this.sortTable.ind].model] -
+            b[this.headers[this.sortTable.ind].model];
+          return this.sortTable.desc ? compare : -compare;
+        }
+      });
     },
   },
 };

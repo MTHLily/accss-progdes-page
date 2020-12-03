@@ -1,5 +1,9 @@
 <template>
   <div class="container">
+    <h1 class="display-6 text-center">{{ title }}</h1>
+    <p class="lead text-justify">
+      {{ description }}
+    </p>
     <div class="input-group mb-4">
       <div class="input-group-prepend">
         <button class="btn btn-primary" @click="toggle = true">True</button>
@@ -50,6 +54,7 @@
 
 <script>
 export default {
+  props: ["title", "description"],
   data() {
     return {
       toggle: false,
