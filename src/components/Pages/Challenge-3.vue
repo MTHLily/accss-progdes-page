@@ -50,20 +50,24 @@
         <div
           class="card"
           draggable="true"
-          style="width: 20rem;"
+          style="width: 15rem;"
           @dragstart="cardStartDrag($event, index)"
           @drop="cardOnDrop($event, index)"
           @dragover.prevent
           @dragenter.prevent
         >
-          <img
+          <div
             v-if="!card.loading"
-            draggable="false"
-            :src="card.image_url"
-            alt="Card Image"
-            class="card-image-top img-fluid"
-          />
-          <div class="card-header" v-if="!card.loading">
+            style="background: url('https://picsum.photos/421/614'); height: 21.7rem;"
+          >
+            <img
+              draggable="false"
+              :src="card.image_url"
+              alt="Card Image"
+              class="card-image-top img-fluid"
+            />
+          </div>
+          <div class="card-body">
             <h5 class="card-title">
               {{ card.name }}
               <button
@@ -75,11 +79,9 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </h5>
-          </div>
-          <div class="card-body">
             <div v-if="card.loading" class="text-center">Loading...</div>
             <div v-else>
-              <p class="lead">
+              <p>
                 <small>{{ card.description }}</small>
               </p>
             </div>
@@ -281,18 +283,31 @@ export default {
 <style scoped>
 .card-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1rem 1rem;
 }
 .suggestions {
   display: none;
   position: absolute;
   width: 100%;
-  height: 10rem;
+  /* height: 10rem; */
+  max-height: 10rem;
   overflow-y: auto;
-  bottom: -10rem;
+  /* bottom: -10rem; */
+  top: 2.3rem;
+  z-index: 10;
+  border: 1px solid lightgray;
+  border-radius: 0 0 6px 6px;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
-.input-group:focus-within .suggestions {
+
+.suggestions::-webkit-scrollbar {
+  display: none;
+}
+
+/* .input-group:focus-within .suggestions { */
+.input-group input:focus + .suggestions {
   display: block;
 }
 

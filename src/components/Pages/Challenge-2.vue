@@ -47,21 +47,21 @@
     <table class="table table-borderless">
       <thead>
         <th v-for="(header, index) in headers" :key="index">
-          <button
-            class="btn w-100 font-weight-bold btn-outline-secondary"
-            @click="sortTableFn(index)"
-          >
+          <button class="table-header" @click="sortTableFn(index)">
             {{ header.name }}
+            <span v-if="index == sortTable.ind" class="table-header-desc">{{
+              sortTable.desc ? "˅" : "˄"
+            }}</span>
           </button>
         </th>
         <th>
-          <button class="btn w-100 font-weight-bold btn-outline-secondary">
+          <button class="table-header">
             Actions
           </button>
         </th>
       </thead>
       <tbody v-if="items.length != 0">
-        <tr v-for="item in tableItems" :key="item.index">
+        <tr v-for="(item, index) in tableItems" :key="index">
           <td>{{ item.name }}</td>
           <td>{{ item.course }}</td>
           <td>{{ item.year }}</td>
@@ -171,4 +171,20 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.table-header {
+  position: relative;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0);
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+
+.table-header-desc {
+  font-weight: normal;
+  position: absolute;
+  right: 1rem;
+}
+</style>
