@@ -57,7 +57,7 @@ export default {
         third: {
           title: "Challenge 3",
           description:
-            "On the press of the button, add a random card from to your deck. Get your cards from this website: <a>https://db.ygoprodeck.com/api-guide/",
+            "Collect cards. You can search for cards, and you will be suggested possible cards. On the press of the button, you may add a random card to your deck. You can remove your cards as well as arrange them by dragging and dropping cards on each other. On dropping, the dragged card is placed before the dropped card. Get your cards from this website: https://db.ygoprodeck.com/api-guide/",
         },
       },
     };
