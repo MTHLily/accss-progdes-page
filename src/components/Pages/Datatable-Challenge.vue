@@ -1,9 +1,38 @@
 <template>
   <div class="container">
-    <h1 class="display-6 text-center">{{ title }}</h1>
+    <h1 class="display-6 text-center">Datatables</h1>
     <p class="lead text-justify">
-      {{ description }}
+      Create a table that displays an array of students. You can add a student,
+      however, you may not add one with bad data ( no course, no name and year
+      level out of bounds (1-5) ). You can also remove students from the list.
+      If you click the headers for name, course or year, it will sort the table.
+      Clicking once will set the sorting mode to that header. Clicking beyond
+      that toggles whether the data is sorted in ascending or descending order.
+      When you add a student, the table is automatically sorted.
     </p>
+    <div class="d-flex justify-content-center m-4">
+      <ul class="list-group  w-50">
+        <li class="list-group-item">Criteria</li>
+        <li class="list-group-item">
+          Show all students <span class="float-right">2 pts</span>
+        </li>
+        <li class="list-group-item">
+          Add a student <span class="float-right">1 pts</span>
+        </li>
+        <li class="list-group-item">
+          Update a student <span class="float-right">2 pts</span>
+        </li>
+        <li class="list-group-item">
+          Delete a student <span class="float-right">2 pts</span>
+        </li>
+        <li class="list-group-item">
+          Search through the table <span class="float-right">3 pts</span>
+        </li>
+        <li class="list-group-item">
+          Order by name, course or year <span class="float-right">3 pts</span>
+        </li>
+      </ul>
+    </div>
     <div class="card">
       <div class="card-header">
         <h5 class="card-title">Add New</h5>
@@ -44,6 +73,14 @@
         </div>
       </div>
     </div>
+
+    <input
+      type="text"
+      class="form-control mt-3"
+      placeholder="Search..."
+      v-model="searchTerm"
+    />
+
     <table class="table table-borderless">
       <thead>
         <th v-for="(header, index) in headers" :key="index">
@@ -86,7 +123,15 @@ export default {
   props: ["title", "description"],
   computed: {
     tableItems() {
-      return this.items;
+      return this.items.filter((item) => {
+        var isTrue = false;
+
+        if (item.name.indexOf(this.searchTerm) >= 0) isTrue = true;
+        if (item.course.indexOf(this.searchTerm) >= 0) isTrue = true;
+        if (item.year == this.searchTerm) isTrue = true;
+
+        return isTrue;
+      });
     },
     valid() {
       return (
@@ -130,6 +175,7 @@ export default {
         course: null,
         year: null,
       },
+      searchTerm: "",
     };
   },
   methods: {

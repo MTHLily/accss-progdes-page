@@ -3,20 +3,19 @@
     <navbar :appStep="step" @change-step="step = $event" />
     <div id="stepper">
       <welcome v-if="step == 1" />
-      <challenge-1
-        v-if="step == 2"
-        :title="challenges.first.title"
-        :description="challenges.first.description"
-      />
-      <challenge-2
-        v-if="step == 3"
-        :title="challenges.second.title"
-        :description="challenges.second.description"
-      />
-      <challenge-3
-        v-if="step == 4"
+      <tooltip-challenge v-if="step == 2" />
+      <model-binding-boolean-challenge v-if="step == 3" />
+      <!-- <challenge-1 v-if="step == 3" /> -->
+      <datatable-challenge v-if="step == 4" />
+      <yugioh-challenge
+        v-if="step == 5"
         :title="challenges.third.title"
         :description="challenges.third.description"
+      />
+      <movie-modal-challenge
+        v-if="step == 6"
+        :title="challenges.fourth.title"
+        :description="challenges.fourth.description"
       />
     </div>
     <step-controls :appStep="step" @change-step="step = $event" />
@@ -27,22 +26,26 @@
 import Navbar from "./components/Navbar.vue";
 import Welcome from "./components/Pages/Welcome";
 import StepControls from "./components/StepControls.vue";
-import Challenge1 from "./components/Pages/Challenge-1.vue";
-import Challenge2 from "./components/Pages/Challenge-2.vue";
-import Challenge3 from "./components/Pages/Challenge-3.vue";
+import ModelBindingBooleanChallenge from "./components/Pages/Model-Binding-Boolean-Challenge.vue";
+import DatatableChallenge from "./components/Pages/Datatable-Challenge.vue";
+import TooltipChallenge from "./components/Pages/Tooltip-Challenge.vue";
+import YugiohChallenge from "./components/Pages/Yugioh-Challenge.vue";
+import MovieModalChallenge from "./components/Pages/Movie-Modal-Challenge.vue";
 export default {
   name: "App",
   components: {
     Navbar,
     Welcome,
     StepControls,
-    Challenge1,
-    Challenge2,
-    Challenge3,
+    ModelBindingBooleanChallenge,
+    DatatableChallenge,
+    TooltipChallenge,
+    YugiohChallenge,
+    MovieModalChallenge,
   },
   data() {
     return {
-      step: 1,
+      step: 5,
       challenges: {
         first: {
           title: "Challenge 1",
@@ -58,6 +61,10 @@ export default {
           title: "Challenge 3",
           description:
             "Collect cards. You can search for cards, and you will be suggested possible cards. On the press of the button, you may add a random card to your deck. You can remove your cards as well as arrange them by dragging and dropping cards on each other. On dropping, the dragged card is placed before the dropped card. Get your cards from this website: https://db.ygoprodeck.com/api-guide/",
+        },
+        fourth: {
+          title: "Challenge 4",
+          description: "http://www.omdbapi.com/",
         },
       },
     };

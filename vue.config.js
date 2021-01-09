@@ -1,6 +1,7 @@
 const path = require("path");
 
 module.exports = {
+  // publicPath: "/progdes/",
   chainWebpack(config) {
     config
       .entry("app")
@@ -11,6 +12,11 @@ module.exports = {
     //   .set("~", path.join(__dirname, "./src"))
     //   .set("@", path.join(__dirname, "./src/core"))
     //   .set("#", path.join(__dirname, "./src/modules"));
+  },
+  configureWebpack: {
+    devServer: {
+      headers: { "Access-Control-Allow-Origin": "*" },
+    },
   },
   css: {
     loaderOptions: {
