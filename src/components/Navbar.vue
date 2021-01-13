@@ -19,49 +19,21 @@
           {{ item.text }}</a
         >
       </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="#" @click="step = 1">Welcome</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Challenges:</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" @click="step = 2">1</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" @click="step = 1">Welcome</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" @click="step = 1">Welcome</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" @click="step = 1">Welcome</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" @click="step = 1">Welcome</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" @click="step = 1">Welcome</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" @click="step = 1">Welcome</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" @click="step = 1">Welcome</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" @click="step = 1">Welcome</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#" @click="step = 1">Welcome</a>
-      </li> -->
     </ul>
   </nav>
 </template>
 
 <script>
 export default {
-  props: ["appStep"],
+  props: ["appStep", "noChallenges"],
+  mounted() {
+    for (var x = 1; x < this.noChallenges; x++) {
+      this.navbarItems.push({
+        step: 1 + x,
+        text: x,
+      });
+    }
+  },
   data() {
     return {
       navbarItems: [
@@ -74,31 +46,6 @@ export default {
           step: 2,
           text: "Challenges:",
           link: false,
-        },
-        {
-          step: 2,
-          text: "1",
-          link: true,
-        },
-        {
-          step: 3,
-          text: "2",
-          link: true,
-        },
-        {
-          step: 4,
-          text: "3",
-          link: true,
-        },
-        {
-          step: 5,
-          text: "4",
-          link: true,
-        },
-        {
-          step: 6,
-          text: "5",
-          link: true,
         },
       ],
     };

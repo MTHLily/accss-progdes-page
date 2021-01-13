@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <h1 class="display-6 text-center">{{ title }}</h1>
+    <h1 class="display-6 text-center">Yugioh Card API</h1>
     <p class="lead text-justify">
-      {{ description }}
+      ygoprodeck.com
     </p>
     <div class="input-group mb-3">
       <input

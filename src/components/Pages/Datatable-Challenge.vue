@@ -2,13 +2,10 @@
   <div class="container">
     <h1 class="display-6 text-center">Datatables</h1>
     <p class="lead text-justify">
-      Create a table that displays an array of students. You can add a student,
-      however, you may not add one with bad data ( no course, no name and year
-      level out of bounds (1-5) ). You can also remove students from the list.
-      If you click the headers for name, course or year, it will sort the table.
-      Clicking once will set the sorting mode to that header. Clicking beyond
-      that toggles whether the data is sorted in ascending or descending order.
-      When you add a student, the table is automatically sorted.
+      A datatable is a table that reflects a set of data. In this case, the
+      table is reflecting an array of students, with their full names, courses
+      and year levels. It can have various functionalities, such as a searching
+      through the table and ordering it by a column.
     </p>
     <div class="d-flex justify-content-center m-4">
       <ul class="list-group  w-50">
