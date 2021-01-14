@@ -9,7 +9,8 @@
       <ul class="list-group w-50">
         <li class="list-group-item">Criteria</li>
         <li class="list-group-item">
-          Tooltip Functionality <span class="float-right">2 pts</span>
+          A tooltip appears when the text is hovered over
+          <span class="float-right">2 pts</span>
         </li>
         <li class="list-group-item">
           Javascriptless Implementation<span class="float-right">3 pts</span>
@@ -61,7 +62,7 @@ span.tip:after {
   transform: translateX(50%);
   clip-path: polygon(50% 100%, 0 0, 100% 0);
   width: 0.5rem;
-  background: rgba(0, 0, 0, 0.6);
+  background: black;
   height: 0.5rem;
 }
 
@@ -72,7 +73,7 @@ span.tip:after {
   left: 0;
   width: auto;
   height: auto;
-  background: rgba(0, 0, 0, 0.6);
+  background: black;
   border-radius: 10px;
   color: white;
   padding: 0.3rem;

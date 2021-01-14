@@ -30,6 +30,7 @@ import TooltipChallenge from "./components/Pages/Tooltip-Challenge.vue";
 import YugiohChallenge from "./components/Pages/Yugioh-Challenge.vue";
 import MovieModalChallenge from "./components/Pages/Movie-Modal-Challenge.vue";
 import CharacterSwapper from "./components/Pages/Character-Swapper.vue";
+import ScheduleMaker from "./components/Pages/Schedule-Maker.vue";
 export default {
   name: "App",
   components: {
@@ -42,10 +43,11 @@ export default {
     YugiohChallenge,
     MovieModalChallenge,
     CharacterSwapper,
+    ScheduleMaker,
   },
   data() {
     return {
-      step: 4,
+      step: 6,
 
       challenges: [
         Welcome,
@@ -53,6 +55,7 @@ export default {
         TooltipChallenge,
         CharacterSwapper,
         DatatableChallenge,
+        ScheduleMaker,
         YugiohChallenge,
         MovieModalChallenge,
       ],

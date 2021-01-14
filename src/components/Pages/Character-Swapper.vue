@@ -6,8 +6,9 @@
       For this challenge, create a simple dynamic cipher program whose steps are
       a list of ASCII character pairs. Each pair consists of the original ASCII
       character, and the destination character. All original characters must be
-      unique. During the encryption process, every character that matches with
-      the list of character pairs will be replaced by the new character.
+      unique, but not the destination characters. During the encryption process,
+      every character that matches with the list of character pairs will be
+      replaced by the new character.
     </p>
     <div class="d-flex justify-content-center m-4">
       <ul class="list-group w-50">
@@ -19,6 +20,10 @@
           Delete an existing pair. <span class="float-right">1 pt</span>
         </li>
         <li class="list-group-item">
+          Display the list of character pairs.
+          <span class="float-right">1 pt</span>
+        </li>
+        <li class="list-group-item">
           Encrypt and display the message.
           <span class="float-right">3 pts</span>
         </li>
@@ -28,7 +33,7 @@
           <span class="float-right">2 pts</span>
         </li>
         <li class="list-group-item">
-          The function for the message encryption should only consist of one (1)
+          The function for the message encryption consists of only one
           statement<span class="float-right">5 pts</span>
         </li>
       </ul>
@@ -117,7 +122,10 @@ export default {
   },
   data() {
     return {
-      cipher: {},
+      cipher: {
+        L: "a",
+        " ": "/",
+      },
       originalText:
         "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis corporis porro suscipit architecto itaque odio voluptates sit delectus consequuntur. Nulla ullam autem itaque non, ex laboriosam ea excepturi eum repudiandae!",
       newCode: {
