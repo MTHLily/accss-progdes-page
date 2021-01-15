@@ -17,6 +17,10 @@
           Add a new character pair. <span class="float-right">1 pt</span>
         </li>
         <li class="list-group-item">
+          Update an existing character pair.
+          <span class="float-right">1 pt</span>
+        </li>
+        <li class="list-group-item">
           Delete an existing pair. <span class="float-right">1 pt</span>
         </li>
         <li class="list-group-item">

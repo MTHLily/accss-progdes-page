@@ -72,13 +72,17 @@
       </li>
       <li class="list-group-item bg-light">Resources</li>
       <li class="list-group-item">
-        <a href="./boilerplate.zip" download>Boilerplate</a>
+        <a href="./boilerplate.zip" download>Boilerplate</a> Use this whenever
+        you try a new challenge.
       </li>
       <li class="list-group-item">
         <a
           href="https://getbootstrap.com/docs/4.5/getting-started/introduction/"
           >Bootstrap 4.5 Documentation</a
         >
+        The only framework you are allowed to use. JQuery and Popper.js not
+        included, so some components may not work properly without your own
+        javascript intervening.
       </li>
     </ol>
   </div>

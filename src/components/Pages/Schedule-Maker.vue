@@ -3,7 +3,7 @@
     <h1 class="display-6 text-center">College Scheduler</h1>
     <p class="lead text-justify">
       Create a schedule application that will take a class and its details and
-      display it on a schedule. A class can only occur between 6AM up until 8AM.
+      display it on a schedule. A class can only occur between 6AM up until 8PM.
       Additionally, give it a feature that allows users to export and import
       their schedules.
     </p>
@@ -442,7 +442,7 @@ export default {
       return (
         parseInt(time.hours * 60) +
         parseInt(time.minutes) +
-        parseInt(!time.AM * 12 * 60)
+        parseInt((!time.AM ^ (time.hours == 12)) * 12 * 60)
       );
     },
     timeString(time) {

@@ -2,7 +2,7 @@
   <div class="container">
     <h1 class="display-6 text-center">Movie API</h1>
     <p class="lead text-justify">
-      <a href="http://www.omdbapi.com/">omdbAPI</a> is an API that provides
+      <a href="https://www.omdbapi.com/">omdbAPI</a> is an API that provides
       information about movies. It requires the use of an API key, which you can
       obtain with your email account. Use it to search for and display
       information about the movie. Additionally, you can also choose to give
@@ -282,7 +282,7 @@ export default {
 
       setTimeout(() => {
         axios
-          .get("http://www.omdbapi.com/", {
+          .get("https://www.omdbapi.com/", {
             params: {
               apikey: this.apiKey,
               s: this.searchMovie,
@@ -318,7 +318,7 @@ export default {
         this.hoverRating = this.personalRatings[imdbId];
       else this.hoverRating = 0;
       axios
-        .get("http://www.omdbapi.com/", {
+        .get("https://www.omdbapi.com/", {
           params: {
             apikey: this.apiKey,
             plot: "full",

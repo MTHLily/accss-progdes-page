@@ -2,17 +2,31 @@
   <div class="container">
     <h1 class="display-6 text-center">Input Model Binding</h1>
     <p class="lead text-justify">
-      The goal is simple: bind a variable to multiple inputs. The following
-      inputs all modify the same boolean variable, and they also display the
-      current state of the variable. The paragraph below changes its text
-      according to the value of the boolean. Addtionally, the textbox changes
-      the contents of the paragraph when the boolean is set to True.
+      The goal is simple: bind a variable to multiple inputs. In this challenge,
+      you have two variables: a boolean and a string.
     </p>
+    <p class="lead text-justify">
+      The inputs above are bound to the boolean. The values of the inputs are
+      bound to that boolean variable. If the boolean is false, their value is
+      also false. If the boolean value changes due to the input, the values of
+      the other inputs are also changed.
+    </p>
+    <p class="lead text-justify">
+      The middle section is a conditional element. If the boolean is false, then
+      it will render some text. If the boolean is true, then it will render the
+      string.
+    </p>
+    <p class="lead text-justify">
+      The last section is a textbox which is bound to the string variable.
+      Whatever changes you make to the text in the textbox, it will also reflect
+      in the string variable.
+    </p>
+
     <div class="d-flex justify-content-center m-4">
       <ul class="list-group w-50">
         <li class="list-group-item bg-light">Criteria</li>
         <li class="list-group-item">
-          Model Binding to Buttons <span class="float-right">1 pts</span>
+          Model Binding to Buttons <span class="float-right">1 pt</span>
         </li>
         <li class="list-group-item">
           Model Binding to Selects <span class="float-right">2 pts</span>
@@ -22,7 +36,11 @@
         </li>
         <li class="list-group-item">
           Conditional content of the paragraph
-          <span class="float-right">1 pts</span>
+          <span class="float-right">1 pt</span>
+        </li>
+        <li class="list-group-item">
+          Model Binding to Textbox
+          <span class="float-right">2pts</span>
         </li>
         <li class="list-group-item">
           Use of Bootstrap 4 Components<span class="float-right">1 pt</span>

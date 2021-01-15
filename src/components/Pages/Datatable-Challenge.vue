@@ -2,9 +2,11 @@
   <div class="container">
     <h1 class="display-6 text-center">Datatables</h1>
     <p class="lead text-justify">
-      A datatable is a table that reflects a set of data. In this case, the
-      table is reflecting an array of students, with their full names, courses
-      and year levels. It also has a search and order by column feature.
+      A datatable is a table that reflects a set of data, with options to
+      manipulate and sift through it. In this challenge, create a table that
+      reflects an array of students, with their full names, courses and year
+      levels. Additionally, create a search feature, and a sort feature by
+      clicking the headers of the tables.
     </p>
     <div class="d-flex justify-content-center m-4">
       <ul class="list-group  w-50">
@@ -18,9 +20,6 @@
         <li class="list-group-item">
           Add form validation: course and student name should be present and
           year levels range from 1-5. <span class="float-right">2 pts</span>
-        </li>
-        <li class="list-group-item">
-          Update a student <span class="float-right">2 pts</span>
         </li>
         <li class="list-group-item">
           Delete a student <span class="float-right">2 pts</span>
