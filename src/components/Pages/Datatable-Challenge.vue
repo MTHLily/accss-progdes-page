@@ -4,17 +4,20 @@
     <p class="lead text-justify">
       A datatable is a table that reflects a set of data. In this case, the
       table is reflecting an array of students, with their full names, courses
-      and year levels. It can have various functionalities, such as a searching
-      through the table and ordering it by a column.
+      and year levels. It also has a search and order by column feature.
     </p>
     <div class="d-flex justify-content-center m-4">
       <ul class="list-group  w-50">
-        <li class="list-group-item">Criteria</li>
+        <li class="list-group-item bg-light">Criteria</li>
         <li class="list-group-item">
-          Show all students <span class="float-right">2 pts</span>
+          Show all students on a table. <span class="float-right">2 pts</span>
         </li>
         <li class="list-group-item">
-          Add a student <span class="float-right">1 pts</span>
+          Add a student. <span class="float-right">1 pts</span>
+        </li>
+        <li class="list-group-item">
+          Add form validation: course and student name should be present and
+          year levels range from 1-5. <span class="float-right">2 pts</span>
         </li>
         <li class="list-group-item">
           Update a student <span class="float-right">2 pts</span>
@@ -118,6 +121,9 @@
 <script>
 export default {
   props: ["title", "description"],
+  mounted() {
+    this.sortTableFn(0);
+  },
   computed: {
     tableItems() {
       return this.items.filter((item) => {
@@ -144,9 +150,24 @@ export default {
     return {
       items: [
         {
-          name: "Mike Espera",
+          name: "John Doe",
           course: "BS-CS",
           year: 3,
+        },
+        {
+          name: "Billy the Bob",
+          course: "BS-IT",
+          year: 1,
+        },
+        {
+          name: "Mahendra Bahubali",
+          course: "BS-IS",
+          year: 2,
+        },
+        {
+          name: "Steve Johnson",
+          course: "BS-DS",
+          year: 4,
         },
       ],
       headers: [

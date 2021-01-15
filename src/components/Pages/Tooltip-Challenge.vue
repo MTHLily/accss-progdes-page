@@ -7,7 +7,7 @@
     </p>
     <div class="d-flex justify-content-center m-4">
       <ul class="list-group w-50">
-        <li class="list-group-item">Criteria</li>
+        <li class="list-group-item bg-light">Criteria</li>
         <li class="list-group-item">
           A tooltip appears when the text is hovered over
           <span class="float-right">2 pts</span>

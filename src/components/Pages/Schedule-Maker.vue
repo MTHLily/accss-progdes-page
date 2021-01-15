@@ -2,18 +2,36 @@
   <div class="container">
     <h1 class="display-6 text-center">College Scheduler</h1>
     <p class="lead text-justify">
-      A tooltip is an element that appears whenever you hover over another
-      element in the page.
+      Create a schedule application that will take a class and its details and
+      display it on a schedule. A class can only occur between 6AM up until 8AM.
+      Additionally, give it a feature that allows users to export and import
+      their schedules.
     </p>
     <div class="d-flex justify-content-center m-4">
       <ul class="list-group w-50">
-        <li class="list-group-item">Criteria</li>
+        <li class="list-group-item bg-light">Criteria</li>
         <li class="list-group-item">
-          A tooltip appears when the text is hovered over
+          Add a scheduled class.
           <span class="float-right">2 pts</span>
         </li>
         <li class="list-group-item">
-          Javascriptless Implementation<span class="float-right">3 pts</span>
+          Add validation for the subject name, start and end times
+          <b>with no overlap</b>, day and professor name.
+          <span class="float-right">3 pts</span>
+        </li>
+        <li class="list-group-item">
+          Display the schedule on a table.<span class="float-right">5 pts</span>
+        </li>
+        <li class="list-group-item">
+          Remove a scheduled class.<span class="float-right">2 pts</span>
+        </li>
+        <li class="list-group-item">
+          Export a schedule as a file.<span class="float-right">1 pt</span>
+        </li>
+        <li class="list-group-item">
+          Import a schedule from an uploaded file.<span class="float-right"
+            >2 pts</span
+          >
         </li>
       </ul>
     </div>

@@ -51,8 +51,8 @@ export default {
 
       challenges: [
         Welcome,
-        ModelBindingBooleanChallenge,
         TooltipChallenge,
+        ModelBindingBooleanChallenge,
         CharacterSwapper,
         DatatableChallenge,
         ScheduleMaker,

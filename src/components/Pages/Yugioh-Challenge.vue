@@ -1,9 +1,55 @@
 <template>
   <div class="container">
-    <h1 class="display-6 text-center">Yugioh Card API</h1>
+    <h1 class="display-6 text-center">Yu-Gi-Oh! Card API</h1>
     <p class="lead text-justify">
-      ygoprodeck.com
+      <a href="https://db.ygoprodeck.com/api-guide/">YGOPRODECK</a> provides an
+      API endpoint that allows for easy access to most, if not all Yu-Gi-Oh!
+      cards currently available. Make use of this api to make a collection of
+      cards. You can either search for the cards, or take a random card from the
+      api. You can reorder the cards by dragging and dropping them on top of
+      each other.
     </p>
+    <div class="d-flex justify-content-center m-4">
+      <ul class="list-group  w-50">
+        <li class="list-group-item bg-light">Criteria</li>
+        <li class="list-group-item">
+          Get a random card. <span class="float-right">1 pt</span>
+        </li>
+        <li class="list-group-item">
+          Search for and add a card by its exact name.
+          <span class="float-right">1 pt</span>
+        </li>
+        <li class="list-group-item">
+          Display a list of search suggestions when typing for the name.<span
+            class="float-right"
+            >3 pts</span
+          >
+        </li>
+        <li class="list-group-item">
+          Display a loading message while retrieving data from the API
+          endpoint.<span class="float-right">1 pt</span>
+        </li>
+        <li class="list-group-item">
+          Notify the user when there is no card of that name.<span
+            class="float-right"
+            >1 pt</span
+          >
+        </li>
+        <li class="list-group-item">
+          Display the card details. Differentiate monster cards, spell cards and
+          trap cards. <span class="float-right">3 pts</span>
+        </li>
+        <li class="list-group-item">
+          Use drag and drop to reorder the list of cards.
+          <span class="float-right">3 pts</span>
+        </li>
+        <li class="list-group-item">
+          Remove a card individually or clear them all at once.
+          <span class="float-right">2 pts</span>
+        </li>
+      </ul>
+    </div>
+
     <div class="input-group mb-3">
       <input
         type="text"

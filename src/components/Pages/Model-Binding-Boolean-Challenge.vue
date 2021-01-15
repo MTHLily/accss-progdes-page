@@ -1,15 +1,16 @@
 <template>
   <div class="container">
-    <h1 class="display-6 text-center">Input Model Binding (Boolean)</h1>
+    <h1 class="display-6 text-center">Input Model Binding</h1>
     <p class="lead text-justify">
       The goal is simple: bind a variable to multiple inputs. The following
       inputs all modify the same boolean variable, and they also display the
       current state of the variable. The paragraph below changes its text
-      according to the value of the boolean.
+      according to the value of the boolean. Addtionally, the textbox changes
+      the contents of the paragraph when the boolean is set to True.
     </p>
     <div class="d-flex justify-content-center m-4">
       <ul class="list-group w-50">
-        <li class="list-group-item">Criteria</li>
+        <li class="list-group-item bg-light">Criteria</li>
         <li class="list-group-item">
           Model Binding to Buttons <span class="float-right">1 pts</span>
         </li>
@@ -65,14 +66,19 @@
       </div>
     </div>
     <p class="lead bg-light p-4" v-if="toggle">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi delectus
-      explicabo natus iste, minus qui quisquam vitae ullam recusandae, quibusdam
-      architecto id nesciunt necessitatibus iure quas eum distinctio cum
-      similique.
+      {{ paragraphText }}
     </p>
     <p class="lead bg-light p-4" v-else>
       The value must be true to display the intended text.
     </p>
+    <div class="row mt-2 mx-1">
+      <textarea
+        cols="30"
+        rows="3"
+        class="form-control"
+        v-model="paragraphText"
+      ></textarea>
+    </div>
   </div>
 </template>
 
@@ -81,6 +87,8 @@ export default {
   props: ["title", "description"],
   data() {
     return {
+      paragraphText:
+        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dicta modi illum fugit, exercitationem, temporibus odit aperiam eligendi veniam laudantium facere voluptatibus blanditiis optio sunt nostrum obcaecati quae sit unde?",
       toggle: false,
     };
   },

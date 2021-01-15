@@ -2,8 +2,52 @@
   <div class="container">
     <h1 class="display-6 text-center">Movie API</h1>
     <p class="lead text-justify">
-      http://www.omdbapi.com/
+      <a href="http://www.omdbapi.com/">omdbAPI</a> is an API that provides
+      information about movies. It requires the use of an API key, which you can
+      obtain with your email account. Use it to search for and display
+      information about the movie. Additionally, you can also choose to give
+      your own personal rating on the movie. Make use of client storage storage
+      to have your ratings persist between visits.
     </p>
+    <div class="d-flex justify-content-center m-4">
+      <ul class="list-group w-50">
+        <li class="list-group-item bg-light">Criteria</li>
+        <li class="list-group-item">
+          Authorize the API endpoint by using your own API key.
+          <span class="float-right">1 pts</span>
+        </li>
+        <li class="list-group-item">
+          Search for a movie and display the results.<span class="float-right"
+            >3 pts</span
+          >
+        </li>
+        <li class="list-group-item">
+          If there is an error in the search, display it to the user.<span
+            class="float-right"
+            >2 pts</span
+          >
+        </li>
+        <li class="list-group-item">
+          Upon selecting a movie from the search results, display its
+          information.<span class="float-right">3 pts</span>
+        </li>
+        <li class="list-group-item">
+          Display the information inside a modal.<span class="float-right"
+            >3 pts</span
+          >
+        </li>
+        <li class="list-group-item">
+          Give your personal rating on a movie.<span class="float-right"
+            >2 pts</span
+          >
+        </li>
+        <li class="list-group-item">
+          Store your personal ratings client-side and retrieve it everytime you
+          load the page.<span class="float-right">2 pts</span>
+        </li>
+      </ul>
+    </div>
+
     <div class="modal show" :style="showMovieModal ? 'display: block;' : ''">
       <div class="modal-dialog modal-xl">
         <div class="modal-content" @click.stop>
@@ -169,6 +213,9 @@
               Searching...
             </div>
           </div>
+          <div v-if="!!error" class="alert alert-danger mt-4 text-center">
+            {{ error }}
+          </div>
           <div
             class="d-flex justify-content-around mt-4"
             v-for="(row, ind) in searchResultsRow"
@@ -218,6 +265,7 @@ export default {
     return {
       apiKey: "40f30081",
       timeout: false,
+      error: "",
       searchMovie: "",
       selectedMovie: null,
       selectedImbdId: null,
@@ -251,6 +299,7 @@ export default {
                 };
               });
             } catch {
+              this.error = data.Error;
               this.results = [];
             }
           });
@@ -258,6 +307,7 @@ export default {
       }, 3000);
 
       this.results = [];
+      this.error = "";
       this.timeout = true;
     },
     showMovieInfo(imdbId) {

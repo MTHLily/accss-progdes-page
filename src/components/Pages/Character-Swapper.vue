@@ -12,7 +12,7 @@
     </p>
     <div class="d-flex justify-content-center m-4">
       <ul class="list-group w-50">
-        <li class="list-group-item">Criteria</li>
+        <li class="list-group-item bg-light">Criteria</li>
         <li class="list-group-item">
           Add a new character pair. <span class="float-right">1 pt</span>
         </li>
@@ -101,10 +101,6 @@
         </table>
       </div>
     </div>
-
-    <div class="row bg-light p-4"></div>
-
-    <div class="row"></div>
   </div>
 </template>
 
@@ -116,7 +112,7 @@ export default {
       this.newCode;
       return this.originalText
         .split("")
-        .map((c) => (this.cipher[c] ? this.cipher[c] : c))
+        .map((c) => (this.cipher[c] != null ? this.cipher[c] : c))
         .reduce((acc, curr) => acc + curr);
     },
   },
@@ -136,7 +132,9 @@ export default {
   },
   methods: {
     addCode() {
-      this.cipher[this.newCode.original] = this.newCode.new;
+      this.cipher[this.newCode.original] = !this.newCode.new
+        ? ""
+        : this.newCode.new;
       this.newCode = {
         original: "",
         new: "",
