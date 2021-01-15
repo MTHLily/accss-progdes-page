@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary m-4">
-    <a class="navbar-brand" href="#">ACCSS Programming-Design Competition</a>
+    <a class="navbar-brand" href="#">AdDU JSCode</a>
 
     <ul class="navbar-nav mr-auto">
       <li class="nav-item p-2" v-for="item in navbarItems" :key="item.text">
